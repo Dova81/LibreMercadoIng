@@ -17,6 +17,9 @@ public class Usuario {
     private String contraseña;
     private Boolean esAdministrador;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    private Tarjeta tarjetaQueUsa;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "prod", referencedColumnName = "id", nullable = false, updatable = false, insertable = false)
     private List<Producto> historialCompra = new ArrayList<Producto>();
